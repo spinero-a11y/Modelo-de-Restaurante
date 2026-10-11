@@ -1,3 +1,40 @@
+// 1. Configurar Fecha Mínima (Hoy) y Máxima (+5 Años en el futuro)
+document.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('reservation-date');
+    if (dateInput) {
+        const now = new Date();
+        const todayStr = now.toISOString().split('T')[0];
+        
+        // Fecha límite a 5 años desde hoy
+        const maxDate = new Date(now.getFullYear() + 5, now.getMonth(), now.getDate());
+        const maxStr = maxDate.toISOString().split('T')[0];
+
+        dateInput.setAttribute('min', todayStr);
+        dateInput.setAttribute('max', maxStr);
+        dateInput.value = todayStr;
+    }
+});
+
+// 2. Control del campo de teléfono (Mantiene +34 y permite solo números después)
+const phoneInput = document.getElementById('reservation-phone');
+if (phoneInput) {
+    phoneInput.addEventListener('focus', () => {
+        if (!phoneInput.value.startsWith('+34')) {
+            phoneInput.value = '+34';
+        }
+    });
+
+    phoneInput.addEventListener('input', (e) => {
+        let val = e.target.value;
+        if (!val.startsWith('+34')) {
+            val = '+34' + val.replace(/[^0-9]/g, '');
+        } else {
+            val = '+34' + val.slice(3).replace(/[^0-9]/g, '');
+        }
+        e.target.value = val;
+    });
+}
+
 // Menú móvil
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -46,9 +83,25 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Manejo del formulario de reserva
+// Manejo del formulario de reserva con validación
 function handleReservation(e) {
     e.preventDefault();
+
+    const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    const phoneError = document.getElementById('phone-error');
+
+    // Expresión regular: +34 seguido de 9 dígitos que comiencen por 6, 7, 8 o 9
+    const phoneRegex = /^\+34[6789]\d{8}$/;
+
+    if (!phoneRegex.test(phoneVal)) {
+        if (phoneError) phoneError.classList.remove('hidden');
+        if (phoneInput) phoneInput.classList.add('border-red-500');
+        return;
+    } else {
+        if (phoneError) phoneError.classList.add('hidden');
+        if (phoneInput) phoneInput.classList.remove('border-red-500');
+    }
+
     closeModal();
     
     // Mostrar toast de éxito

@@ -394,7 +394,7 @@
                 </div>
             </div>
 
-            <!-- Mapa simulado o visual de ubicación -->
+            <!-- Mapa simulado -->
             <div class="map-card">
                 <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" alt="Mapa" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.25]">
                 <div class="map-overlay-box">
@@ -421,7 +421,7 @@
         <p>&copy; 2026 L'Étoile Restaurante. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MODAL DE RESERVA -->
+    <!-- MODAL DE RESERVA ACTUALIZADO -->
     <div id="reservation-modal" class="modal-overlay hidden">
         <div class="modal-container">
             <button onclick="closeModal()" class="modal-close">
@@ -431,13 +431,14 @@
             <div class="text-center space-y-2">
                 <span class="text-gold tracking-widest uppercase text-xs font-semibold">Reserva Online</span>
                 <h3 class="font-serif text-2xl font-bold text-white">Reserva tu Mesa</h3>
-                <p class="text-gray-400 text-xs font-light">Completa los detalles para asegurar tu experiencia.</p>
+                <p class="text-gray-400 text-xs font-light">Reserva con total flexibilidad para los próximos años.</p>
             </div>
 
             <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="form-label">Fecha</label>
+                        <!-- Selector de fecha con mínimo (hoy) y máximo (varios años en el futuro) gestionados por JS -->
                         <input type="date" id="reservation-date" required class="form-input">
                     </div>
                     <div>
@@ -471,9 +472,10 @@
                         <input type="text" placeholder="Tu nombre" required class="form-input">
                     </div>
                     <div>
-                        <label class="form-label">Teléfono</label>
-                        <input type="tel" id="reservation-phone" placeholder="Ej: 612345678" maxlength="9" pattern="[0-9]{9}" required title="Introduce un teléfono válido de 9 dígitos" class="form-input">
-                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido de 9 dígitos.</span>
+                        <label class="form-label">Teléfono (+34)</label>
+                        <!-- Formato estricto +34 seguido de 9 números -->
+                        <input type="tel" id="reservation-phone" value="+34" placeholder="+34 612 34 56 78" maxlength="13" required title="Debe empezar por +34 seguido de 9 números" class="form-input">
+                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido (+34 seguido de 9 dígitos).</span>
                     </div>
                 </div>
 
