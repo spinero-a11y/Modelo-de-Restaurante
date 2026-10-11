@@ -385,11 +385,12 @@
                 <p class="text-gray-400 text-xs font-light">Completa los detalles para asegurar tu experiencia.</p>
             </div>
 
-            <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
+           <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Fecha</label>
-                        <input type="date" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                        <!-- AQUÍ FALTABA EL id="reservation-date" -->
+                        <input type="date" id="reservation-date" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Hora</label>
@@ -422,8 +423,10 @@
                         <input type="text" placeholder="Tu nombre" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Teléfono</label>
-                        <input type="tel" placeholder="+34 600..." required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Teléfono (+34)</label>
+                        <!-- AQUÍ FALTABAN EL id="reservation-phone", el value="+34" y el span de error -->
+                        <input type="tel" id="reservation-phone" value="+34" placeholder="+34 600..." maxlength="13" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido (+34 seguido de 9 dígitos).</span>
                     </div>
                 </div>
 

@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dateInput) {
         const now = new Date();
         const todayStr = now.toISOString().split('T')[0];
-        
-        // Permite reservas hasta dentro de 5 años
         const maxDate = new Date(now.getFullYear() + 5, now.getMonth(), now.getDate());
         const maxStr = maxDate.toISOString().split('T')[0];
 
@@ -15,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Control del campo de teléfono (+34 obligatorio + 9 números)
+// Control del campo de teléfono (+34 obligatorio + 9 dígitos)
 const phoneInput = document.getElementById('reservation-phone');
 if (phoneInput) {
     phoneInput.addEventListener('focus', () => {
@@ -34,6 +32,17 @@ if (phoneInput) {
         e.target.value = val;
     });
 }
+
+    phoneInput.addEventListener('input', (e) => {
+        let val = e.target.value;
+        if (!val.startsWith('+34')) {
+            val = '+34' + val.replace(/[^0-9]/g, '');
+        } else {
+            val = '+34' + val.slice(3).replace(/[^0-9]/g, '');
+        }
+        e.target.value = val;
+    });
+
 
 // Menú móvil
 const menuBtn = document.getElementById('menu-btn');
