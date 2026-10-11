@@ -89,19 +89,20 @@ window.addEventListener('click', (e) => {
 });
 
 // Manejo del formulario de reserva con validación de teléfono
+// Manejo del formulario de reserva con validación de teléfono
 function handleReservation(e) {
     e.preventDefault();
 
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
     const phoneError = document.getElementById('phone-error');
 
-    // Validación: +34 seguido de 9 números que inicien con 6, 7, 8 o 9
+    // Validación oficial: +34 seguido de 9 dígitos que comiencen por 6, 7, 8 o 9
     const phoneRegex = /^\+34[6789]\d{8}$/;
 
     if (!phoneRegex.test(phoneVal)) {
         if (phoneError) phoneError.classList.remove('hidden');
         if (phoneInput) phoneInput.classList.add('border-red-500');
-        return;
+        return; // Detiene el envío si el teléfono está mal
     } else {
         if (phoneError) phoneError.classList.add('hidden');
         if (phoneInput) phoneInput.classList.remove('border-red-500');
@@ -117,15 +118,3 @@ function handleReservation(e) {
         toast.classList.add('translate-y-32');
     }, 4000);
 }
-
-// Navbar transparente con efecto al hacer scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('py-3');
-        navbar.classList.remove('py-4');
-    } else {
-        navbar.classList.remove('py-3');
-        navbar.classList.add('py-4');
-    }
-});
