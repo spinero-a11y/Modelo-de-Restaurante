@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L'Étoile | Alta Cocina & Restaurante</title>
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,39 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes scaleUp {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        .animate-scale-up {
-            animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-pulse-slow {
-            animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f1015;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #272832;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-darkBg text-gray-200 font-sans selection:bg-gold selection:text-black">
 
@@ -84,7 +52,7 @@
             </div>
 
             <div class="hidden md:block">
-                <button onclick="openModal()" class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 cursor-pointer">
+                <button onclick="openModal()" class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300">
                     Reservar Mesa
                 </button>
             </div>
@@ -124,7 +92,7 @@
                 Una experiencia culinaria única donde la tradición y la vanguardia se fusionan en el corazón de la ciudad.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <button onclick="openModal()" class="w-full sm:w-auto bg-gold text-black hover:bg-gold-light px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg shadow-gold/20 cursor-pointer">
+                <button onclick="openModal()" class="w-full sm:w-auto bg-gold text-black hover:bg-gold-light px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg shadow-gold/20">
                     Reservar una Mesa
                 </button>
                 <a href="#menu" class="w-full sm:w-auto border border-white/20 hover:border-gold text-white hover:text-gold px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all">
@@ -167,34 +135,19 @@
         </div>
     </section>
 
-    <!-- Menú Interactivo con Alérgenos -->
+    <!-- Menú Interactivo -->
     <section id="menu" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto text-center space-y-4 mb-12">
+        <div class="max-w-5xl mx-auto text-center space-y-4 mb-16">
             <span class="text-gold tracking-widest uppercase text-xs font-semibold">Propuesta Culinaria</span>
             <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Nuestra Carta</h2>
             <p class="text-gray-400 max-w-lg mx-auto font-light text-sm">Descubre nuestras creaciones diseñadas para despertar todos tus sentidos.</p>
             
             <!-- Tabs -->
             <div class="flex flex-wrap justify-center gap-2 pt-6">
-                <button onclick="switchTab('entrantes')" id="btn-entrantes" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-gold text-black cursor-pointer">Entrantes</button>
-                <button onclick="switchTab('principales')" id="btn-principales" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Principales</button>
-                <button onclick="switchTab('postres')" id="btn-postres" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Postres</button>
-                <button onclick="switchTab('vinos')" id="btn-vinos" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Vinos & Cavas</button>
-            </div>
-        </div>
-
-        <!-- Leyenda de Alérgenos -->
-        <div class="max-w-4xl mx-auto mb-10 p-4 bg-darkCard/60 border border-white/5 rounded-xl text-center">
-            <span class="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-3">
-                <i class="fa-solid fa-circle-info text-gold mr-1"></i> Información de Alérgenos e Intolerancias
-            </span>
-            <div class="flex flex-wrap justify-center gap-4 text-xs text-gray-400">
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wheat-awn text-amber-500"></i> Gluten</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-cow text-blue-400"></i> Lácteos</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-fish text-cyan-400"></i> Pescado</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shrimp text-rose-400"></i> Marisco</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-egg text-yellow-300"></i> Huevo</span>
-                <span class="flex items-center gap-1.5"><i class="fa-solid fa-seedling text-emerald-400"></i> Frutos Secos</span>
+                <button onclick="switchTab('entrantes')" id="btn-entrantes" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-gold text-black">Entrantes</button>
+                <button onclick="switchTab('principales')" id="btn-principales" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Principales</button>
+                <button onclick="switchTab('postres')" id="btn-postres" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Postres</button>
+                <button onclick="switchTab('vinos')" id="btn-vinos" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Vinos & Cavas</button>
             </div>
         </div>
 
@@ -208,10 +161,6 @@
                         <span class="text-gold font-serif text-lg">24 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Con emulsión de cítricos, caviar de Asetra y aceite de hinojo salvaje.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
-                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -219,10 +168,6 @@
                         <span class="text-gold font-serif text-lg">26 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Brioche artesanal, reducción de Pedro Ximénez y escamas de sal rosa.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-amber-950/60 text-amber-400 border border-amber-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
-                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -230,10 +175,6 @@
                         <span class="text-gold font-serif text-lg">28 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Aguacate asado, yema curada en soja y crujiente de arroz negro.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
-                        <span class="bg-yellow-950/60 text-yellow-300 border border-yellow-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -241,9 +182,6 @@
                         <span class="text-gold font-serif text-lg">22 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Aromas de lemongrass, aire de coco y crujiente de coral.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
-                    </div>
                 </div>
             </div>
 
@@ -255,9 +193,6 @@
                         <span class="text-gold font-serif text-lg">48 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Puré de patata trufada, chalotas glaseadas al oporto y jus de ternera.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -265,10 +200,6 @@
                         <span class="text-gold font-serif text-lg">38 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Fideos de calamar, emulsión de plancton marino y ajoblanco suave.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
-                        <span class="bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -283,10 +214,6 @@
                         <span class="text-gold font-serif text-lg">36 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Caldo concentrado de crustáceos, sofrito tradicional y alioli de azafrán.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
-                        <span class="bg-yellow-950/60 text-yellow-300 border border-yellow-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
-                    </div>
                 </div>
             </div>
 
@@ -298,10 +225,6 @@
                         <span class="text-gold font-serif text-lg">16 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Chocolate Valrhona 70%, interior de praliné crujiente y helado de vainilla Bourbon.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                        <span class="bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
-                    </div>
                 </div>
                 <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
@@ -309,10 +232,6 @@
                         <span class="text-gold font-serif text-lg">14 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Selección de quesos artesanales, crema ligera y mermelada de higos casera.</p>
-                    <div class="flex gap-2 pt-2 text-xs">
-                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                        <span class="bg-amber-950/60 text-amber-400 border border-amber-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
-                    </div>
                 </div>
             </div>
 
@@ -426,7 +345,7 @@
                 </div>
             </div>
 
-            <!-- Mapa simulado -->
+            <!-- Mapa simulado o visual de ubicación -->
             <div class="relative rounded-2xl overflow-hidden border border-white/10 h-[400px] bg-darkCard flex items-center justify-center">
                 <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" alt="Mapa" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.25]">
                 <div class="relative z-10 text-center space-y-3 p-6 bg-darkBg/80 backdrop-blur-md rounded-xl border border-white/10 max-w-sm">
@@ -453,35 +372,35 @@
         <p>&copy; 2026 L'Étoile Restaurante. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MODAL DE RESERVA CON VALIDACIÓN DE TELÉFONO Y FECHAS -->
+    <!-- MODAL DE RESERVA -->
     <div id="reservation-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm hidden">
         <div class="bg-darkCard border border-white/10 rounded-2xl max-w-lg w-full p-8 relative space-y-6 animate-scale-up">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl cursor-pointer">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
             <div class="text-center space-y-2">
                 <span class="text-gold tracking-widest uppercase text-xs font-semibold">Reserva Online</span>
                 <h3 class="font-serif text-2xl font-bold text-white">Reserva tu Mesa</h3>
-                <p class="text-gray-400 text-xs font-light">Reserva con total flexibilidad para los próximos años.</p>
+                <p class="text-gray-400 text-xs font-light">Completa los detalles para asegurar tu experiencia.</p>
             </div>
 
             <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Fecha</label>
-                        <input type="date" id="reservation-date" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none [color-scheme:dark]">
+                        <input type="date" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Hora</label>
                         <select required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                             <option value="">Selecciona hora</option>
-                            <option value="13:30">13:30 (Comida)</option>
-                            <option value="14:15">14:15 (Comida)</option>
-                            <option value="15:00">15:00 (Comida)</option>
-                            <option value="20:30">20:30 (Cena)</option>
-                            <option value="21:15">21:15 (Cena)</option>
-                            <option value="22:00">22:00 (Cena)</option>
+                            <option value="13:30">13:30 </option>
+                            <option value="14:15">14:15 </option>
+                            <option value="15:00">15:00 </option>
+                            <option value="20:30">20:30 </option>
+                            <option value="21:15">21:15 </option>
+                            <option value="22:00">22:00 </option>
                         </select>
                     </div>
                 </div>
@@ -503,13 +422,12 @@
                         <input type="text" placeholder="Tu nombre" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Teléfono (+34)</label>
-                        <input type="tel" id="reservation-phone" value="+34" placeholder="+34 612 34 56 78" maxlength="13" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
-                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido (+34 seguido de 9 dígitos).</span>
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Teléfono</label>
+                        <input type="tel" placeholder="+34 600..." required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-widest py-3 rounded-lg text-xs hover:bg-gold-light transition cursor-pointer">
+                <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-widest py-3 rounded-lg text-xs hover:bg-gold-light transition">
                     Confirmar Reserva
                 </button>
             </form>
