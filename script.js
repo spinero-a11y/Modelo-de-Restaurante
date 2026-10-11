@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const now = new Date();
         const todayStr = now.toISOString().split('T')[0];
         
-        // Fecha límite a 5 años desde hoy
+        // Permite reservas hasta dentro de 5 años
         const maxDate = new Date(now.getFullYear() + 5, now.getMonth(), now.getDate());
         const maxStr = maxDate.toISOString().split('T')[0];
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 2. Control del campo de teléfono (Mantiene +34 y permite solo números después)
+// 2. Control del campo de teléfono (+34 obligatorio + 9 dígitos)
 const phoneInput = document.getElementById('reservation-phone');
 if (phoneInput) {
     phoneInput.addEventListener('focus', () => {
@@ -45,21 +45,17 @@ menuBtn.addEventListener('click', () => {
 
 // Cambiar de pestañas en el Menú
 function switchTab(category) {
-    // Ocultar todos los contenidos
     const contents = document.querySelectorAll('.menu-content');
     contents.forEach(c => c.classList.add('hidden'));
 
-    // Quitar clases activas de los botones
     const tabs = document.querySelectorAll('.menu-tab');
     tabs.forEach(t => {
         t.classList.remove('bg-gold', 'text-black');
         t.classList.add('bg-darkCard', 'text-gray-400');
     });
 
-    // Mostrar contenido seleccionado
     document.getElementById(`content-${category}`).classList.remove('hidden');
 
-    // Activar botón seleccionado
     const activeBtn = document.getElementById(`btn-${category}`);
     activeBtn.classList.remove('bg-darkCard', 'text-gray-400');
     activeBtn.classList.add('bg-gold', 'text-black');
@@ -83,14 +79,14 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Manejo del formulario de reserva con validación
+// Manejo del formulario de reserva con validación de teléfono
 function handleReservation(e) {
     e.preventDefault();
 
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
     const phoneError = document.getElementById('phone-error');
 
-    // Expresión regular: +34 seguido de 9 dígitos que comiencen por 6, 7, 8 o 9
+    // Validación oficial: +34 seguido de 9 números que inicien con 6, 7, 8 o 9
     const phoneRegex = /^\+34[6789]\d{8}$/;
 
     if (!phoneRegex.test(phoneVal)) {

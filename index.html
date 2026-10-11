@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L'Étoile | Alta Cocina & Restaurante</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,40 +36,40 @@
 <body class="bg-darkBg text-gray-200 font-sans selection:bg-gold selection:text-black">
 
     <!-- Navbar -->
-    <nav id="navbar" class="nav-container">
-        <div class="nav-content">
-            <a href="#" class="nav-logo">
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-darkBg/80 backdrop-blur-md border-b border-white/5 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold tracking-widest text-white">
                 L'<span class="text-gold">ÉTOILE</span>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="nav-links">
-                <a href="#inicio" class="nav-link">Inicio</a>
-                <a href="#historia" class="nav-link">Filosofía</a>
-                <a href="#menu" class="nav-link">Menú</a>
-                <a href="#experiencia" class="nav-link">Experiencia</a>
-                <a href="#contacto" class="nav-link">Ubicación</a>
+            <div class="hidden md:flex items-center space-x-8 text-sm tracking-wider uppercase font-medium">
+                <a href="#inicio" class="hover:text-gold transition">Inicio</a>
+                <a href="#historia" class="hover:text-gold transition">Filosofía</a>
+                <a href="#menu" class="hover:text-gold transition">Menú</a>
+                <a href="#experiencia" class="hover:text-gold transition">Experiencia</a>
+                <a href="#contacto" class="hover:text-gold transition">Ubicación</a>
             </div>
 
             <div class="hidden md:block">
-                <button onclick="openModal()" class="btn-outline-gold">
+                <button onclick="openModal()" class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300">
                     Reservar Mesa
                 </button>
             </div>
 
             <!-- Mobile Hamburger -->
-            <button id="menu-btn" class="hamburger-btn">
+            <button id="menu-btn" class="md:hidden text-2xl text-white focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="mobile-dropdown hidden">
-            <a href="#inicio" class="mobile-link">Inicio</a>
-            <a href="#historia" class="mobile-link">Filosofía</a>
-            <a href="#menu" class="mobile-link">Menú</a>
-            <a href="#experiencia" class="mobile-link">Experiencia</a>
-            <a href="#contacto" class="mobile-link">Ubicación</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-darkCard border-b border-white/10 px-6 py-4 space-y-4 text-center">
+            <a href="#inicio" class="block hover:text-gold uppercase text-sm">Inicio</a>
+            <a href="#historia" class="block hover:text-gold uppercase text-sm">Filosofía</a>
+            <a href="#menu" class="block hover:text-gold uppercase text-sm">Menú</a>
+            <a href="#experiencia" class="block hover:text-gold uppercase text-sm">Experiencia</a>
+            <a href="#contacto" class="block hover:text-gold uppercase text-sm">Ubicación</a>
             <button onclick="openModal()" class="w-full bg-gold text-black py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase">
                 Reservar Mesa
             </button>
@@ -77,7 +77,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <header id="inicio" class="hero-section">
+    <header id="inicio" class="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2000&auto=format&fit=crop" alt="Restaurante" class="w-full h-full object-cover filter brightness-[0.35] scale-105 animate-pulse-slow">
             <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/40 to-transparent"></div>
@@ -85,17 +85,17 @@
 
         <div class="relative z-10 max-w-3xl mx-auto space-y-6 mt-16">
             <span class="text-gold tracking-[0.3em] uppercase text-xs font-semibold block animate-fade-in">Alta Cocina de Autor</span>
-            <h1 class="hero-title">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
                 El Arte de la <span class="italic font-normal text-gold">Gastronomía</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="text-gray-300 text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed">
                 Una experiencia culinaria única donde la tradición y la vanguardia se fusionan en el corazón de la ciudad.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <button onclick="openModal()" class="btn-gold-primary">
+                <button onclick="openModal()" class="w-full sm:w-auto bg-gold text-black hover:bg-gold-light px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg shadow-gold/20">
                     Reservar una Mesa
                 </button>
-                <a href="#menu" class="btn-outline-white">
+                <a href="#menu" class="w-full sm:w-auto border border-white/20 hover:border-gold text-white hover:text-gold px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all">
                     Ver Menú
                 </a>
             </div>
@@ -107,7 +107,7 @@
     </header>
 
     <!-- Historia & Filosofía -->
-    <section id="historia" class="section-container bg-darkCard/50 border-t border-white/5">
+    <section id="historia" class="py-24 px-6 bg-darkCard/50 border-t border-white/5">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6">
                 <span class="text-gold tracking-widest uppercase text-xs font-semibold">Nuestra Historia</span>
@@ -136,7 +136,7 @@
     </section>
 
     <!-- Menú Interactivo con Alérgenos -->
-    <section id="menu" class="section-container">
+    <section id="menu" class="py-24 px-6">
         <div class="max-w-5xl mx-auto text-center space-y-4 mb-12">
             <span class="text-gold tracking-widest uppercase text-xs font-semibold">Propuesta Culinaria</span>
             <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Nuestra Carta</h2>
@@ -170,130 +170,130 @@
         <div class="max-w-4xl mx-auto">
             <!-- Entrantes -->
             <div id="content-entrantes" class="menu-content grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Carpaccio de Vieira</h4>
                         <span class="text-gold font-serif text-lg">24 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Con emulsión de cítricos, caviar de Asetra y aceite de hinojo salvaje.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-rose-950/60 text-rose-400 border-rose-800/40"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
-                        <span class="allergen-tag bg-cyan-950/60 text-cyan-400 border-cyan-800/40"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
+                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
+                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Foie Gras Mi-Cuit</h4>
                         <span class="text-gold font-serif text-lg">26 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Brioche artesanal, reducción de Pedro Ximénez y escamas de sal rosa.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-amber-950/60 text-amber-400 border-amber-800/40"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
-                        <span class="allergen-tag bg-blue-950/60 text-blue-400 border-blue-800/40"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
+                        <span class="bg-amber-950/60 text-amber-400 border border-amber-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
+                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Tartar de Atún Rojo</h4>
                         <span class="text-gold font-serif text-lg">28 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Aguacate asado, yema curada en soja y crujiente de arroz negro.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-cyan-950/60 text-cyan-400 border-cyan-800/40"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
-                        <span class="allergen-tag bg-yellow-950/60 text-yellow-300 border-yellow-800/40"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
+                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
+                        <span class="bg-yellow-950/60 text-yellow-300 border border-yellow-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Crema de Quisquilla</h4>
                         <span class="text-gold font-serif text-lg">22 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Aromas de lemongrass, aire de coco y crujiente de coral.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-rose-950/60 text-rose-400 border-rose-800/40"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
+                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
                     </div>
                 </div>
             </div>
 
             <!-- Principales -->
             <div id="content-principales" class="menu-content hidden grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Solomillo de Wagyu</h4>
                         <span class="text-gold font-serif text-lg">48 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Puré de patata trufada, chalotas glaseadas al oporto y jus de ternera.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-blue-950/60 text-blue-400 border-blue-800/40"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
+                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Lubina Salvaje al Horno</h4>
                         <span class="text-gold font-serif text-lg">38 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Fideos de calamar, emulsión de plancton marino y ajoblanco suave.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-cyan-950/60 text-cyan-400 border-cyan-800/40"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
-                        <span class="allergen-tag bg-emerald-950/60 text-emerald-400 border-emerald-800/40"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
+                        <span class="bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-fish text-[10px]"></i> Pescado</span>
+                        <span class="bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Pichón de Cazador</h4>
                         <span class="text-gold font-serif text-lg">42 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Pechuga asada al punto, muslito confitado y reducción de frutos rojos.</p>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Arroz Cremoso de Bogavante</h4>
                         <span class="text-gold font-serif text-lg">36 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Caldo concentrado de crustáceos, sofrito tradicional y alioli de azafrán.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-rose-950/60 text-rose-400 border-rose-800/40"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
-                        <span class="allergen-tag bg-yellow-950/60 text-yellow-300 border-yellow-800/40"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
+                        <span class="bg-rose-950/60 text-rose-400 border border-rose-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-shrimp text-[10px]"></i> Marisco</span>
+                        <span class="bg-yellow-950/60 text-yellow-300 border border-yellow-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-egg text-[10px]"></i> Huevo</span>
                     </div>
                 </div>
             </div>
 
             <!-- Postres -->
             <div id="content-postres" class="menu-content hidden grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Esfera de Creador</h4>
                         <span class="text-gold font-serif text-lg">16 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Chocolate Valrhona 70%, interior de praliné crujiente y helado de vainilla Bourbon.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-blue-950/60 text-blue-400 border-blue-800/40"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                        <span class="allergen-tag bg-emerald-950/60 text-emerald-400 border-emerald-800/40"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
+                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
+                        <span class="bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-seedling text-[10px]"></i> Frutos Secos</span>
                     </div>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Tarta de Queso L'Étoile</h4>
                         <span class="text-gold font-serif text-lg">14 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Selección de quesos artesanales, crema ligera y mermelada de higos casera.</p>
                     <div class="flex gap-2 pt-2 text-xs">
-                        <span class="allergen-tag bg-blue-950/60 text-blue-400 border-blue-800/40"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
-                        <span class="allergen-tag bg-amber-950/60 text-amber-400 border-amber-800/40"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
+                        <span class="bg-blue-950/60 text-blue-400 border border-blue-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-cow text-[10px]"></i> Lácteos</span>
+                        <span class="bg-amber-950/60 text-amber-400 border border-amber-800/40 px-2 py-0.5 rounded-full flex items-center gap-1"><i class="fa-solid fa-wheat-awn text-[10px]"></i> Gluten</span>
                     </div>
                 </div>
             </div>
 
             <!-- Vinos -->
             <div id="content-vinos" class="menu-content hidden grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Marqués de Murrieta Reserva</h4>
                         <span class="text-gold font-serif text-lg">55 €</span>
                     </div>
                     <p class="text-gray-400 text-sm font-light">Rioja DOCa - Elegante, complejo con notas balsámicas y fruta madura.</p>
                 </div>
-                <div class="menu-card">
+                <div class="bg-darkCard p-6 rounded-xl border border-white/5 space-y-2">
                     <div class="flex justify-between items-baseline">
                         <h4 class="font-serif text-xl font-bold text-white">Dom Pérignon Vintage</h4>
                         <span class="text-gold font-serif text-lg">290 €</span>
@@ -305,196 +305,7 @@
     </section>
 
     <!-- Experiencia & Testimonios -->
-    <section id="experiencia" class="section-container bg-darkCard/50 border-t border-white/5">
+    <section id="experiencia" class="py-24 px-6 bg-darkCard/50 border-t border-white/5">
         <div class="max-w-6xl mx-auto space-y-16">
             <div class="text-center space-y-4">
-                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Críticas & Opiniones</span>
-                <h2 class="font-serif text-4xl font-bold text-white">Lo que dicen de nosotros</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="testimonial-card">
-                    <div class="text-gold flex space-x-1 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
-                        "Una de las experiencias gastronómicas más memorables de la ciudad. El servicio es impecable y el solomillo de wagyu roza la perfección."
-                    </p>
-                    <div class="pt-4 border-t border-white/10">
-                        <h5 class="font-bold text-white text-sm">Guía Gastronómica</h5>
-                        <span class="text-xs text-gray-400">Crítico Culinario</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="text-gold flex space-x-1 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
-                        "Ambiente íntimo, sofisticado y romántico. Ideal para celebraciones especiales. La carta de vinos es excepcional."
-                    </p>
-                    <div class="pt-4 border-t border-white/10">
-                        <h5 class="font-bold text-white text-sm">Sofía M.</h5>
-                        <span class="text-xs text-gray-400">Comensal Frecuente</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="text-gold flex space-x-1 text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
-                        "El nivel de detalle en cada plato demuestra el amor y respeto por la cocina. Volveremos sin duda alguna."
-                    </p>
-                    <div class="pt-4 border-t border-white/10">
-                        <h5 class="font-bold text-white text-sm">Carlos V.</h5>
-                        <span class="text-xs text-gray-400">Cliente Verificado</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto y Ubicación -->
-    <section id="contacto" class="section-container">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-8">
-                <div>
-                    <span class="text-gold tracking-widest uppercase text-xs font-semibold">Visítanos</span>
-                    <h2 class="font-serif text-4xl font-bold text-white mt-2">Localización & Horarios</h2>
-                    <p class="text-gray-400 font-light text-sm mt-2">Te esperamos en nuestro local principal ubicado en el distrito exclusivo de la ciudad.</p>
-                </div>
-
-                <div class="space-y-6 text-sm text-gray-300">
-                    <div class="flex items-start space-x-4">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <strong class="text-white block font-semibold">Dirección</strong>
-                            <p class="text-gray-400 font-light">Calle Serrano 42, Barrio de Salamanca, Madrid</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-clock"></i>
-                        </div>
-                        <div>
-                            <strong class="text-white block font-semibold">Horarios</strong>
-                            <p class="text-gray-400 font-light">Martes a Sábado: 13:30 – 16:00 y 20:30 – 23:30<br>Domingo y Lunes: Cerrado por descanso</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="contact-icon">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <strong class="text-white block font-semibold">Teléfono de Reservas</strong>
-                            <p class="text-gray-400 font-light">+34 912 345 678</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mapa simulado -->
-            <div class="map-card">
-                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" alt="Mapa" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.25]">
-                <div class="map-overlay-box">
-                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mx-auto text-xl">
-                        <i class="fa-solid fa-utensils"></i>
-                    </div>
-                    <h3 class="font-serif font-bold text-lg text-white">L'Étoile Restaurant</h3>
-                    <p class="text-xs text-gray-400">Valet parking disponible en la entrada principal para todos nuestros comensales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-container">
-        <div class="font-serif text-xl font-bold tracking-widest text-white">
-            L'<span class="text-gold">ÉTOILE</span>
-        </div>
-        <div class="flex justify-center space-x-6 text-base text-gray-400">
-            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-tripadvisor"></i></a>
-        </div>
-        <p>&copy; 2026 L'Étoile Restaurante. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- MODAL DE RESERVA ACTUALIZADO -->
-    <div id="reservation-modal" class="modal-overlay hidden">
-        <div class="modal-container">
-            <button onclick="closeModal()" class="modal-close">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            
-            <div class="text-center space-y-2">
-                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Reserva Online</span>
-                <h3 class="font-serif text-2xl font-bold text-white">Reserva tu Mesa</h3>
-                <p class="text-gray-400 text-xs font-light">Reserva con total flexibilidad para los próximos años.</p>
-            </div>
-
-            <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="form-label">Fecha</label>
-                        <!-- Selector de fecha con mínimo (hoy) y máximo (varios años en el futuro) gestionados por JS -->
-                        <input type="date" id="reservation-date" required class="form-input">
-                    </div>
-                    <div>
-                        <label class="form-label">Hora</label>
-                        <select required class="form-input">
-                            <option value="">Selecciona hora</option>
-                            <option value="13:30">13:30 (Comida)</option>
-                            <option value="14:15">14:15 (Comida)</option>
-                            <option value="15:00">15:00 (Comida)</option>
-                            <option value="20:30">20:30 (Cena)</option>
-                            <option value="21:15">21:15 (Cena)</option>
-                            <option value="22:00">22:00 (Cena)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="form-label">Número de Comensales</label>
-                    <select required class="form-input">
-                        <option value="1">1 Persona</option>
-                        <option value="2" selected>2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                        <option value="5">5+ Personas (Grupo)</option>
-                    </select>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="form-label">Nombre</label>
-                        <input type="text" placeholder="Tu nombre" required class="form-input">
-                    </div>
-                    <div>
-                        <label class="form-label">Teléfono (+34)</label>
-                        <!-- Formato estricto +34 seguido de 9 números -->
-                        <input type="tel" id="reservation-phone" value="+34" placeholder="+34 612 34 56 78" maxlength="13" required title="Debe empezar por +34 seguido de 9 números" class="form-input">
-                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido (+34 seguido de 9 dígitos).</span>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    Confirmar Reserva
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Notificación flotante -->
-    <div id="toast" class="toast-notification">
-        <i class="fa-solid fa-circle-check text-gold text-lg"></i>
-        <div>
-            <h5 class="font-bold text-sm">¡Reserva Solicitada!</h5>
-            <p class="text-xs text-gray-400">Te hemos enviado un SMS de confirmación.</p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Críticas &
