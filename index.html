@@ -31,7 +31,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleUp {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-scale-up {
+            animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-pulse-slow {
+            animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1015;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #272832;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
 </head>
 <body class="bg-darkBg text-gray-200 font-sans selection:bg-gold selection:text-black">
 
@@ -52,7 +84,7 @@
             </div>
 
             <div class="hidden md:block">
-                <button onclick="openModal()" class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300">
+                <button onclick="openModal()" class="border border-gold text-gold hover:bg-gold hover:text-black px-6 py-2.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 cursor-pointer">
                     Reservar Mesa
                 </button>
             </div>
@@ -92,7 +124,7 @@
                 Una experiencia culinaria única donde la tradición y la vanguardia se fusionan en el corazón de la ciudad.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <button onclick="openModal()" class="w-full sm:w-auto bg-gold text-black hover:bg-gold-light px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg shadow-gold/20">
+                <button onclick="openModal()" class="w-full sm:w-auto bg-gold text-black hover:bg-gold-light px-8 py-3.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg shadow-gold/20 cursor-pointer">
                     Reservar una Mesa
                 </button>
                 <a href="#menu" class="w-full sm:w-auto border border-white/20 hover:border-gold text-white hover:text-gold px-8 py-3.5 rounded-full text-xs font-semibold tracking-widest uppercase transition-all">
@@ -144,10 +176,10 @@
             
             <!-- Tabs -->
             <div class="flex flex-wrap justify-center gap-2 pt-6">
-                <button onclick="switchTab('entrantes')" id="btn-entrantes" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-gold text-black">Entrantes</button>
-                <button onclick="switchTab('principales')" id="btn-principales" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Principales</button>
-                <button onclick="switchTab('postres')" id="btn-postres" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Postres</button>
-                <button onclick="switchTab('vinos')" id="btn-vinos" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white">Vinos & Cavas</button>
+                <button onclick="switchTab('entrantes')" id="btn-entrantes" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-gold text-black cursor-pointer">Entrantes</button>
+                <button onclick="switchTab('principales')" id="btn-principales" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Principales</button>
+                <button onclick="switchTab('postres')" id="btn-postres" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Postres</button>
+                <button onclick="switchTab('vinos')" id="btn-vinos" class="menu-tab px-6 py-2 rounded-full text-xs tracking-wider uppercase font-semibold transition bg-darkCard text-gray-400 hover:text-white cursor-pointer">Vinos & Cavas</button>
             </div>
         </div>
 
@@ -308,4 +340,191 @@
     <section id="experiencia" class="py-24 px-6 bg-darkCard/50 border-t border-white/5">
         <div class="max-w-6xl mx-auto space-y-16">
             <div class="text-center space-y-4">
-                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Críticas &
+                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Críticas & Opiniones</span>
+                <h2 class="font-serif text-4xl font-bold text-white">Lo que dicen de nosotros</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-darkCard p-8 rounded-2xl border border-white/5 space-y-4 relative">
+                    <div class="text-gold flex space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
+                        "Una de las experiencias gastronómicas más memorables de la ciudad. El servicio es impecable y el solomillo de wagyu roza la perfección."
+                    </p>
+                    <div class="pt-4 border-t border-white/10">
+                        <h5 class="font-bold text-white text-sm">Guía Gastronómica</h5>
+                        <span class="text-xs text-gray-400">Crítico Culinario</span>
+                    </div>
+                </div>
+                <div class="bg-darkCard p-8 rounded-2xl border border-white/5 space-y-4 relative">
+                    <div class="text-gold flex space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
+                        "Ambiente íntimo, sofisticado y romántico. Ideal para celebraciones especiales. La carta de vinos es excepcional."
+                    </p>
+                    <div class="pt-4 border-t border-white/10">
+                        <h5 class="font-bold text-white text-sm">Sofía M.</h5>
+                        <span class="text-xs text-gray-400">Comensal Frecuente</span>
+                    </div>
+                </div>
+                <div class="bg-darkCard p-8 rounded-2xl border border-white/5 space-y-4 relative">
+                    <div class="text-gold flex space-x-1 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic text-sm leading-relaxed">
+                        "El nivel de detalle en cada plato demuestra el amor y respeto por la cocina. Volveremos sin duda alguna."
+                    </p>
+                    <div class="pt-4 border-t border-white/10">
+                        <h5 class="font-bold text-white text-sm">Carlos V.</h5>
+                        <span class="text-xs text-gray-400">Cliente Verificado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto y Ubicación -->
+    <section id="contacto" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div>
+                    <span class="text-gold tracking-widest uppercase text-xs font-semibold">Visítanos</span>
+                    <h2 class="font-serif text-4xl font-bold text-white mt-2">Localización & Horarios</h2>
+                    <p class="text-gray-400 font-light text-sm mt-2">Te esperamos en nuestro local principal ubicado en el distrito exclusivo de la ciudad.</p>
+                </div>
+
+                <div class="space-y-6 text-sm text-gray-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-semibold">Dirección</strong>
+                            <p class="text-gray-400 font-light">Calle Serrano 42, Barrio de Salamanca, Madrid</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-semibold">Horarios</strong>
+                            <p class="text-gray-400 font-light">Martes a Sábado: 13:30 – 16:00 y 20:30 – 23:30<br>Domingo y Lunes: Cerrado por descanso</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong class="text-white block font-semibold">Teléfono de Reservas</strong>
+                            <p class="text-gray-400 font-light">+34 912 345 678</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa simulado -->
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 h-[400px] bg-darkCard flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&auto=format&fit=crop" alt="Mapa" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.25]">
+                <div class="relative z-10 text-center space-y-3 p-6 bg-darkBg/80 backdrop-blur-md rounded-xl border border-white/10 max-w-sm">
+                    <div class="w-12 h-12 bg-gold text-black rounded-full flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-white">L'Étoile Restaurant</h3>
+                    <p class="text-xs text-gray-400">Valet parking disponible en la entrada principal para todos nuestros comensales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5 bg-darkCard text-center text-xs text-gray-500 space-y-4">
+        <div class="font-serif text-xl font-bold tracking-widest text-white">
+            L'<span class="text-gold">ÉTOILE</span>
+        </div>
+        <div class="flex justify-center space-x-6 text-base text-gray-400">
+            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-gold transition"><i class="fa-brands fa-tripadvisor"></i></a>
+        </div>
+        <p>&copy; 2026 L'Étoile Restaurante. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- MODAL DE RESERVA CON VALIDACIÓN DE TELÉFONO Y FECHAS -->
+    <div id="reservation-modal" class="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm hidden">
+        <div class="bg-darkCard border border-white/10 rounded-2xl max-w-lg w-full p-8 relative space-y-6 animate-scale-up">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center space-y-2">
+                <span class="text-gold tracking-widest uppercase text-xs font-semibold">Reserva Online</span>
+                <h3 class="font-serif text-2xl font-bold text-white">Reserva tu Mesa</h3>
+                <p class="text-gray-400 text-xs font-light">Reserva con total flexibilidad para los próximos años.</p>
+            </div>
+
+            <form id="reservation-form" onsubmit="handleReservation(event)" class="space-y-4 text-left">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Fecha</label>
+                        <input type="date" id="reservation-date" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none [color-scheme:dark]">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Hora</label>
+                        <select required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                            <option value="">Selecciona hora</option>
+                            <option value="13:30">13:30 (Comida)</option>
+                            <option value="14:15">14:15 (Comida)</option>
+                            <option value="15:00">15:00 (Comida)</option>
+                            <option value="20:30">20:30 (Cena)</option>
+                            <option value="21:15">21:15 (Cena)</option>
+                            <option value="22:00">22:00 (Cena)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Número de Comensales</label>
+                    <select required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                        <option value="1">1 Persona</option>
+                        <option value="2" selected>2 Personas</option>
+                        <option value="3">3 Personas</option>
+                        <option value="4">4 Personas</option>
+                        <option value="5">5+ Personas (Grupo)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Nombre</label>
+                        <input type="text" placeholder="Tu nombre" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1 uppercase">Teléfono (+34)</label>
+                        <input type="tel" id="reservation-phone" value="+34" placeholder="+34 612 34 56 78" maxlength="13" required class="w-full bg-darkBg border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white focus:border-gold focus:outline-none">
+                        <span id="phone-error" class="text-[11px] text-red-400 hidden mt-1 block">Introduce un teléfono válido (+34 seguido de 9 dígitos).</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-widest py-3 rounded-lg text-xs hover:bg-gold-light transition cursor-pointer">
+                    Confirmar Reserva
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notificación flotante -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-darkCard border border-gold text-white px-6 py-4 rounded-xl shadow-2xl transform translate-y-32 transition-transform duration-300 flex items-center space-x-3">
+        <i class="fa-solid fa-circle-check text-gold text-lg"></i>
+        <div>
+            <h5 class="font-bold text-sm">¡Reserva Solicitada!</h5>
+            <p class="text-xs text-gray-400">Te hemos enviado un SMS de confirmación.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

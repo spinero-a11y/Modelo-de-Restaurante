@@ -1,4 +1,4 @@
-// 1. Configurar Fecha Mínima (Hoy) y Máxima (+5 Años en el futuro)
+// Configurar Fecha Mínima (Hoy) y Máxima (+5 Años en el futuro)
 document.addEventListener('DOMContentLoaded', () => {
     const dateInput = document.getElementById('reservation-date');
     if (dateInput) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 2. Control del campo de teléfono (+34 obligatorio + 9 dígitos)
+// Control del campo de teléfono (+34 obligatorio + 9 números)
 const phoneInput = document.getElementById('reservation-phone');
 if (phoneInput) {
     phoneInput.addEventListener('focus', () => {
@@ -86,7 +86,7 @@ function handleReservation(e) {
     const phoneVal = phoneInput ? phoneInput.value.trim() : '';
     const phoneError = document.getElementById('phone-error');
 
-    // Validación oficial: +34 seguido de 9 números que inicien con 6, 7, 8 o 9
+    // Validación: +34 seguido de 9 números que inicien con 6, 7, 8 o 9
     const phoneRegex = /^\+34[6789]\d{8}$/;
 
     if (!phoneRegex.test(phoneVal)) {
