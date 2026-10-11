@@ -1,15 +1,18 @@
 // Configurar Fecha Mínima (Hoy) y Máxima (+5 Años en el futuro)
+// Configurar Fecha Mínima (Hoy) y Máxima (+5 Años en el futuro)
 document.addEventListener('DOMContentLoaded', () => {
     const dateInput = document.getElementById('reservation-date');
     if (dateInput) {
         const now = new Date();
         const todayStr = now.toISOString().split('T')[0];
+        
+        // Establece la fecha máxima a 5 años desde el día actual
         const maxDate = new Date(now.getFullYear() + 5, now.getMonth(), now.getDate());
         const maxStr = maxDate.toISOString().split('T')[0];
 
         dateInput.setAttribute('min', todayStr);
         dateInput.setAttribute('max', maxStr);
-        dateInput.value = todayStr;
+        dateInput.value = todayStr; // Carga la fecha de hoy por defecto
     }
 });
 
